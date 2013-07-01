@@ -2,136 +2,145 @@
 <html>
 <head>
 	<title>JavaScript Encapsulation Pattern Cheatsheet</title>
-	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
 </head>
 <body>
-<h3>JavaScript Encapsulation Pattern Cheatsheet</h3>
+    <div class="container">
+    <h3>JavaScript Encapsulation Pattern Cheatsheet</h3>
 
-<p>JavaScript is not a classic object oriented language - there is no private, protected or public. But it is still extremely good practice to hide implementation details from the users of your object's methods. This is a foundation of encapsulation.</p>
+    <p>JavaScript is not a classic object oriented language - there is no private, protected or public. But it is still extremely good practice to hide implementation details from the users of your object's methods. This is a foundation of encapsulation.</p>
 
-<p>There are two patterns for this. One is the module pattern and produces singleton behaviour; the other is a plain old JavaScript object and produces the behaviour of an instanced object.</p>
+    <p>There are two patterns for this. One is the module pattern and produces singleton behaviour; the other is a plain old JavaScript object and produces the behaviour of an instanced object.</p>
 
-<h4>Module pattern</h4>
+    <h4>Module pattern</h4>
 
-<pre>
-var CatManager = (function() {
-	// private variables
-    var numCats = 3;
+    <pre>
+    var CatManager = (function() {
+    	// private variables
+        var numCats = 3;
 
-    // private methods
-    var incrementCats = function () {
-    	numCats++;
-    }
-    var decrementCats = function() {
-    	numCats--;
-    }
-
-    // public methods
-    return {
-        getNumCats: function () {
-        	return numCats;
-        },
-        addCat: function (cat) {
-        	incrementCats();
+        // private methods
+        var incrementCats = function () {
+        	numCats++;
         }
-    }
-}());
-</pre>
-
-<script>
-var CatManager = (function() {
-	// private variables
-    var numCats = 3;
-
-    // private methods
-    var incrementCats = function () {
-    	numCats++;
-    }
-    var decrementCats = function() {
-    	numCats--;
-    }
-
-    // public methods
-    return {
-        getNumCats: function () {
-        	return numCats;
-        },
-        addCat: function (cat) {
-        	incrementCats();
+        var decrementCats = function() {
+        	numCats--;
         }
+
+        // public methods
+        return {
+            getNumCats: function () {
+            	return numCats;
+            },
+            addCat: function (cat) {
+            	incrementCats();
+            }
+        }
+    }());
+    </pre>
+
+    <script>
+    var CatManager = (function() {
+    	// private variables
+        var numCats = 3;
+
+        // private methods
+        var incrementCats = function () {
+        	numCats++;
+        }
+        var decrementCats = function() {
+        	numCats--;
+        }
+
+        // public methods
+        return {
+            getNumCats: function () {
+            	return numCats;
+            },
+            addCat: function (cat) {
+            	incrementCats();
+            }
+        }
+    }());
+
+    var test = function() {
+    	CatManager.addCat({name: "Tabby"});
+    	var num = CatManager.getNumCats();
+    	console.log(num);
     }
-}());
+    </script>
 
-var test = function() {
-	CatManager.addCat({name: "Tabby"});
-	var num = CatManager.getNumCats();
-	console.log(num);
-}
-</script>
+    <h5>Usage:</h5>
 
-<h5>Usage:</h5>
+    <pre>
+    CatManager.addCat({name: "Tabby"});
+    var num = CatManager.getNumCats();
+    console.log(num);
+    </pre>
 
-<pre>
-CatManager.addCat({name: "Tabby"});
-var num = CatManager.getNumCats();
-console.log(num);
-</pre>
+    <p>Open developer console to see output - click more than once and note singleton behaviour.</p>
 
-<button onclick="test()">Test</button>
+    <button class="btn" onclick="test()">Test</button>
+    <hr>
 
-<p>Open developer console to see output - click more than once and note singleton behaviour.</p>
+    <h4>Object pattern</h4>
 
-<h4>Object pattern</h4>
+    <pre>
+    Cat = function(catName) {
+        var name = catName;
+        var furballs = 0;
 
-<pre>
-Cat = function(catName) {
-    var name = catName;
-    var furballs = 0;
+    	function digest() {
+    		furballs++;
+    	}
 
-	function digest() {
-		furballs++;
-	}
+    	this.eat = function (food) {
+    		digest();
+    		return furballs;
+    	}
+    }
+    </pre>
 
-	this.eat = function (food) {
-		digest();
-		return furballs;
-	}
-}
-</pre>
+    <script>
+    Cat = function(catName) {
+        var name = catName;
+        var furballs = 0;
 
-<script>
-Cat = function(catName) {
-    var name = catName;
-    var furballs = 0;
+    	function digest() {
+    		furballs++;
+    	}
 
-	function digest() {
-		furballs++;
-	}
+    	this.eat = function (food) {
+    		digest();
+    		return furballs;
+    	}
+    }
 
-	this.eat = function (food) {
-		digest();
-		return furballs;
-	}
-}
+    var test2 = function() {
+    	var cat = new Cat("Tabby");
+    	var furballs = cat.eat({type: "mouse"});
+    	console.log(furballs);
+    }
+    </script>
 
-var test2 = function() {
-	var cat = new Cat("Tabby");
-	var furballs = cat.eat({type: "mouse"});
-	console.log(furballs);
-}
-</script>
+    <h5>Usage:</h5>
 
-<h5>Usage:</h5>
+    <pre>
+    var cat = new Cat("Tabby");
+    var furballs = cat.eat({type: "mouse"});
+    console.log(furballs);
+    </pre>
 
-<pre>
-var cat = new Cat("Tabby");
-var furballs = cat.eat({type: "mouse"});
-console.log(furballs);
-</pre>
+    <p>Open developer console to see output - click more than once and note object behaviour.</p>
 
-<button onclick="test2()">Test</button>
+    <button class="btn" onclick="test2()">Test</button>
 
-<p>Open developer console to see output - click more than once and note object behaviour.</p>
+    <hr>
 
+    <h4>References</h4>
+
+    <p><a href="http://addyosmani.com/largescalejavascript/#modpattern">The Module Pattern</a> on Addy Osmani's "Patterns For Large-Scale JavaScript Application Architecture"</p>
+
+    </div>
 </body>
 </html>
