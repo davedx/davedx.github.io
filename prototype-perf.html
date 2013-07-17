@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<title>Test</title>
+</head>
+<body>
+<pre>Check JavaScript console / view source</pre>
+<script>
+
+var Cat = function(name) {
+	this.name = name;
+
+	var word = function() {
+		return 'meow';
+	}
+	this.talk = function() {
+		console.log(this.name + ': ' + word());
+	}
+	this.add = function(a, b) {
+		return a+b;
+	}
+	this.sub = function(a, b) {
+		return a-b;
+	}
+}
+
+var Dog = function(name) { this.name = name; };
+
+Dog.prototype = (function (name) {
+
+	var word = function () {
+		return 'woof';
+	}
+
+	return {
+		talk: function () {
+			console.log(this.name + ': ' + word());
+		},
+		add: function(a, b) {
+			return a+b;
+		},
+		sub: function(a, b) {
+			return a-b;
+		}
+	};
+})();
+
+var cats = [];
+var dogs = [];
+var t1=0, t2=0;
+
+t1 = Date.now();
+for(var i=0; i<100000; i++) {
+	var kitty = new Cat('Tibbles'+i);
+	cats.push(kitty);
+}
+t2 = Date.now();
+console.log("Catstrap: "+(t2-t1));
+
+t1 = Date.now();
+for(var i=0; i<100000; i++) {
+	var doggy = new Dog('Robin'+i);
+	dogs.push(doggy);
+}
+t2 = Date.now();
+console.log("Dogstrap: "+(t2-t1));
+
+// functional equivalence test
+cats[0].talk();
+cats[1].talk();
+
+dogs[0].talk();
+dogs[1].talk();
+
+</script>
+</body>
+</html>

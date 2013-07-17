@@ -137,6 +137,14 @@
 
     <hr>
 
+    <h4>Performance considerations</h4>
+
+    <p>If you have objects with more than a handful of methods (imagine the Cat with eat, sleep, run, scratch, etc. methods) that are instanced many times (an invasion of cats?), it may be worth considering using prototypal method definitions instead for performance reasons. I've written a quick and dirty performance test of two functionally equivalent classes, one that uses prototype to define its methods and the other using the above method, and there is a significant difference between initialisation times. This only kicks in when you're looking at hundreds of thousands of objects though (tested in Chrome on Win 7).</p>
+
+    <h5><a href="prototype-perf.html">Performance test of prototype vs defining methods inside function</a></h5>
+
+    <hr>
+
     <h4>References</h4>
 
     <p><a href="http://addyosmani.com/largescalejavascript/#modpattern">The Module Pattern</a> on Addy Osmani's "Patterns For Large-Scale JavaScript Application Architecture"</p>
