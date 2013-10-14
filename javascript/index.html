@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+<head>
+	<title>JavaScript Encapsulation Pattern Cheatsheet</title>
+	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+    <h3>JavaScript Encapsulation Pattern Cheatsheet</h3>
+
+    <p>JavaScript is not a classic object oriented language - there is no private, protected or public. But it is still extremely good practice to hide implementation details from the users of your object's methods. This is a foundation of encapsulation.</p>
+
+    <p>There are two patterns for this. One is the module pattern and produces singleton behaviour; the other is a plain old JavaScript object and produces the behaviour of an instanced object.</p>
+
+    <h4>Module pattern</h4>
+
+    <pre>
+    var CatManager = (function() {
+    	// private variables
+        var numCats = 3;
+
+        // private methods
+        var incrementCats = function () {
+        	numCats++;
+        }
+        var decrementCats = function() {
+        	numCats--;
+        }
+
+        // public methods
+        return {
+            getNumCats: function () {
+            	return numCats;
+            },
+            addCat: function (cat) {
+            	incrementCats();
+            }
+        }
+    }());
+    </pre>
+
+    <script>
+    var CatManager = (function() {
+    	// private variables
+        var numCats = 3;
+
+        // private methods
+        var incrementCats = function () {
+        	numCats++;
+        }
+        var decrementCats = function() {
+        	numCats--;
+        }
+
+        // public methods
+        return {
+            getNumCats: function () {
+            	return numCats;
+            },
+            addCat: function (cat) {
+            	incrementCats();
+            }
+        }
+    }());
+
+    var test = function() {
+    	CatManager.addCat({name: "Tabby"});
+    	var num = CatManager.getNumCats();
+    	console.log(num);
+    }
+    </script>
+
+    <h5>Usage:</h5>
+
+    <pre>
+    CatManager.addCat({name: "Tabby"});
+    var num = CatManager.getNumCats();
+    console.log(num);
+    </pre>
+
+    <p>Open developer console to see output - click more than once and note singleton behaviour.</p>
+
+    <button class="btn" onclick="test()">Test</button>
+    <hr>
+
+    <h4>Object pattern</h4>
+
+    <pre>
+    Cat = function(catName) {
+        var name = catName;
+        var furballs = 0;
+
+    	function digest() {
+    		furballs++;
+    	}
+
+    	this.eat = function (food) {
+    		digest();
+    		return furballs;
+    	}
+    }
+    </pre>
+
+    <script>
+    Cat = function(catName) {
+        var name = catName;
+        var furballs = 0;
+
+    	function digest() {
+    		furballs++;
+    	}
+
+    	this.eat = function (food) {
+    		digest();
+    		return furballs;
+    	}
+    }
+
+    var test2 = function() {
+    	var cat = new Cat("Tabby");
+    	var furballs = cat.eat({type: "mouse"});
+    	console.log(furballs);
+    }
+    </script>
+
+    <h5>Usage:</h5>
+
+    <pre>
+    var cat = new Cat("Tabby");
+    var furballs = cat.eat({type: "mouse"});
+    console.log(furballs);
+    </pre>
+
+    <p>Open developer console to see output - click more than once and note object behaviour.</p>
+
+    <button class="btn" onclick="test2()">Test</button>
+
+    <hr>
+
+    <h4>Performance considerations</h4>
+
+    <p>If you have objects with more than a handful of methods (imagine the Cat with eat, sleep, run, scratch, etc. methods) that are instanced many times (an invasion of cats?), it may be worth considering using prototypal method definitions instead for performance reasons. I've written a quick and dirty performance test of two functionally equivalent classes, one that uses prototype to define its methods and the other using the above method, and there is a significant difference between initialisation times. This only kicks in when you're looking at hundreds of thousands of objects though (tested in Chrome on Win 7).</p>
+
+    <h5><a href="prototype-perf.html">Performance test of prototype vs defining methods inside function</a></h5>
+
+    <hr>
+
+    <h4>References</h4>
+
+    <p><a href="http://addyosmani.com/largescalejavascript/#modpattern">The Module Pattern</a> on Addy Osmani's "Patterns For Large-Scale JavaScript Application Architecture"</p>
+
+    <hr>
+
+    <h4>About</h4>
+
+    <p><a href="http://twitter.com/redskyforge">@redskyforge</a></p>
+
+    </div>
+</body>
+</html>

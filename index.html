@@ -1,160 +1,162 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>JavaScript Encapsulation Pattern Cheatsheet</title>
-	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>Dave Clayton, Senior Freelance Web Developer | Freelance Developer near Utrecht, the Netherlands</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dave Clayton is a senior freelance developer, based in the Netherlands. He is professional, creative and experienced with web, mobile and game development.">
+  <meta name="author" content="Dave Clayton">
+  <link href="assets/dave.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-    <h3>JavaScript Encapsulation Pattern Cheatsheet</h3>
 
-    <p>JavaScript is not a classic object oriented language - there is no private, protected or public. But it is still extremely good practice to hide implementation details from the users of your object's methods. This is a foundation of encapsulation.</p>
+<section>
+	<article>
+		<header>
+			<h2>Dave Clayton</h2>
+			<h3>Senior Freelance Developer</h3>
+		</header>
+		<img class="mugshot" alt="Dave Clayton" src="img/me-square-358.jpg">
+		<div class="divider"></div>
+		<p class="delta lede">Senior web and mobile developer with extensive, diverse industry experience. Passionate and driven, Dave has worked for companies around the world, from multinationals to Silicon Valley startups.</p>
+	</article>
 
-    <p>There are two patterns for this. One is the module pattern and produces singleton behaviour; the other is a plain old JavaScript object and produces the behaviour of an instanced object.</p>
+	<article>
+		<h3>Skills</h3>
+		<table class="table">
+			<tr>
+				<td><span title="Single page apps, Meteor, MAF, AngularJS, Node.js, jQuery">JavaScript</span></td>
+				<td><span title="Responsive CSS3, SASS, Bootstrap, Grunt">HTML5, CSS</span></td>
+			</tr>
+			<tr>
+				<td><span title="ASP.NET, Unity3D">C#</span></td>
+				<td><span title="Laravel, Wordpress">PHP</span></td>
+			</tr>
+			<tr>
+				<td><span title="Native, libgdx">Android</span></td>
+				<td><span title="MySQL, Oracle, PostgreSQL, MSSQL, MongoDB">Databases</span></td>
+			</tr>
+			<tr>
+				<td><span title="Struts, Netty, Jooq, Maven">Java</span></td>
+				<td><span title="Scrum, agile, waterfall, git, svn">Collaboration</span></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span title="Business analysis, requirements gathering, functional and technical design, architecture, acceptance testing">Software engineering</span></td>
+			</tr>
+		</table>
 
-    <h4>Module pattern</h4>
+	</article>
 
-    <pre>
-    var CatManager = (function() {
-    	// private variables
-        var numCats = 3;
+	<article>
+		<h3>Recommendations</h3>
+		<blockquote>
+			<p>&ldquo;Over the past year I have had the pleasure of working with Dave on various high demanding game projects. Dave proved to be capable of delivering high quality code under the most challenging deadlines and still being able to deliver critical feedback for process optimization and thinking along on a broad range of development subjects.</p>
 
-        // private methods
-        var incrementCats = function () {
-        	numCats++;
-        }
-        var decrementCats = function() {
-        	numCats--;
-        }
+			<p>I would highly recommend to hire Dave for any web/game project and am looking forward to working together on future projects.&rdquo; - <em>David S.</em></p>
+		</blockquote>
 
-        // public methods
-        return {
-            getNumCats: function () {
-            	return numCats;
-            },
-            addCat: function (cat) {
-            	incrementCats();
-            }
-        }
-    }());
-    </pre>
+		<blockquote>
+	    <p>&ldquo;It's been a pleasure to work with Dave, his work and prompt feedback far exceeded my
+	    expectations. He delivered exactly what was commissioned with very good quality and excellent punctuality.
+	    His efficiency, flexibility and amazing advice has left me with nothing more than complete gratitude. I will
+	    definitely work with him again should the need arise and would recommend him in a heartbeat. If professionalism,
+	    good work ethic and excellent execution is what you're looking for Mr. Clayton delivers.&rdquo; - <em>Daniel P.</em>
+	    </p>
+	  </blockquote>
 
-    <script>
-    var CatManager = (function() {
-    	// private variables
-        var numCats = 3;
+	  <blockquote>
+	    <p>&ldquo;Dave demonstrates professionalism and enthusiasm in his attitude, he is focused and organised in
+	      his execution. For our project we set time and cost based deadlines to deliverables, which he worked to
+	      and successfully delivered. He has a strong understanding of customer needs and his approach motivates me
+	      to continue to work with him.&rdquo; - <em>Oliver K.</em>
+	    </p>
+	  </blockquote>
+  </article>
 
-        // private methods
-        var incrementCats = function () {
-        	numCats++;
-        }
-        var decrementCats = function() {
-        	numCats--;
-        }
+  <article>
+  	<a name="portfolio">
+	  	<h3>Portfolio</h3>
+  	</a>
 
-        // public methods
-        return {
-            getNumCats: function () {
-            	return numCats;
-            },
-            addCat: function (cat) {
-            	incrementCats();
-            }
-        }
-    }());
+		<header>
+			<h4>Apptimize</h4>
+		</header>
+		<a href="img/apptimize.jpg"><img class="screenshot" alt="Apptimize" src="img/apptimize.jpg"></a>
+		<p class="clear-left">Developed Java backend, frontend (AngularJS) and Android client for mobile A/B testing startup Apptimize. Worked closely with CTO on various parts of the product, now a successful venture capital funded company.</p>
+		<p><a href="http://www.apptimize.com">Visit site</a></p>
 
-    var test = function() {
-    	CatManager.addCat({name: "Tabby"});
-    	var num = CatManager.getNumCats();
-    	console.log(num);
-    }
-    </script>
+		<header>
+			<h4>Game Localizer</h4>
+		</header>
+		<a href="img/gamelocalizer.jpg"><img class="screenshot" alt="Game Localizer" src="img/gamelocalizer.jpg"></a>
+		<p class="clear-left">Built localization web app facilitating the translation of game projects and production of JSON localization sheets for other client applications. Web app is cleanly separated into an API and a responsive front-end application. Using: PHP (Laravel), MySQL, HTML5, CSS3, jQuery, REST, JSON.</p>
+		<p><em>(Private web app)</em></p>
 
-    <h5>Usage:</h5>
+		<header>
+			<h4>Stand.NL App</h4>
+		</header>
+		<a href="img/standnlapp.jpg"><img class="screenshot" alt="Stand.NL App" src="img/standnlapp.jpg"></a>
+		<p class="clear-left">Built Android app for radio station "user voice" show: radio streaming, user voting and poll creation, commenting, with live refreshing of data from web services and Facebook integration.</p>
+		<p><a href="https://play.google.com/store/apps/details?id=nl.ncrv.standnl">View app</a></p>
 
-    <pre>
-    CatManager.addCat({name: "Tabby"});
-    var num = CatManager.getNumCats();
-    console.log(num);
-    </pre>
+		<div class="divider"></div>
 
-    <p>Open developer console to see output - click more than once and note singleton behaviour.</p>
+		<header>
+			<h4>The Hobbit Game</h4>
+		</header>
+		<a href="img/thehobbitgame.jpg"><img class="screenshot" alt="The Hobbit Game" src="img/thehobbitgame.jpg"></a>
+		<p class="clear-left">Developed website for Hobbit "Dwarf Training" Game including integration with corresponding Unity game apps. PHP / MySQL / REST. Implemented achievements, leaderboards and Facebook integration.</p>
+		<p><a href="http://apps.warnerbros.com/thehobbit/dwarftraining/us/public/">Visit site</a></p>
 
-    <button class="btn" onclick="test()">Test</button>
-    <hr>
+		<div class="divider"></div>
 
-    <h4>Object pattern</h4>
+		<header>
+			<h4>Tumbler Designer</h4>
+		</header>
+		<a href="img/tumblerdesigner.jpg"><img class="screenshot" alt="Tumbler Designer" src="img/tumblerdesigner.jpg"></a>
+		<p class="clear-left">Team project. Worked on Unity app, and web integration between app and website (game data serialization). Using: PHP (Smarty), MySQL, HTML5, CSS3, jQuery, REST, Memcache.</p>
+		<p><a href="http://tumblerdesigner.com">Visit site</a></p>
 
-    <pre>
-    Cat = function(catName) {
-        var name = catName;
-        var furballs = 0;
+  </article>
 
-    	function digest() {
-    		furballs++;
-    	}
+  <article itemscope itemtype="http://schema.org/LocalBusiness">
+  	<h3>Contact</h3>
+    <span itemprop="name">Dave Clayton</span><br>
+    <span itemprop="telephone">+31 6347 96837</span><br>
+		<span><a href="mailto:davedx@gmail.com" itemprop="email">davedx@gmail.com</a></span><br>
+    <address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+      <span itemprop="addressLocality">Ede</span> <span itemprop="postalCode">6715 EM,</span><br>
+      <span itemprop="addressCountry">The Netherlands</span>
+    </address>
+		<p>
+		<i class="icon icon-file-alt"></i><a href="DaveClaytonResume.pdf">Resume</a><br>
+		<i class="icon icon-linkedin"></i><a href="http://nl.linkedin.com/in/daveclayton78">LinkedIn</a><br>
+		<i class="icon icon-github-alt"></i><a href="https://github.com/davedx">GitHub</a><br>
+		</p>
+  </article>
 
-    	this.eat = function (food) {
-    		digest();
-    		return furballs;
-    	}
-    }
-    </pre>
+	<footer role="contentinfo">
+		<p><small>&copy; 2013 Dave Clayton</small></p>
+		<blockquote>
+			<p><small>&ldquo;If you see a whole thing - it seems that it's always beautiful. Planets, lives... But up close a world's all dirt and rocks. And day to day, life's a hard job, you get tired, you lose the pattern.&rdquo; - <em><a href="http://www.ursulakleguin.com/">Ursula K. Le Guin</a></em>
+			</small></p>
+		</blockquote>
+	</footer>
+</section>
 
-    <script>
-    Cat = function(catName) {
-        var name = catName;
-        var furballs = 0;
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-35911704-1']);
+  _gaq.push(['_trackPageview']);
 
-    	function digest() {
-    		furballs++;
-    	}
-
-    	this.eat = function (food) {
-    		digest();
-    		return furballs;
-    	}
-    }
-
-    var test2 = function() {
-    	var cat = new Cat("Tabby");
-    	var furballs = cat.eat({type: "mouse"});
-    	console.log(furballs);
-    }
-    </script>
-
-    <h5>Usage:</h5>
-
-    <pre>
-    var cat = new Cat("Tabby");
-    var furballs = cat.eat({type: "mouse"});
-    console.log(furballs);
-    </pre>
-
-    <p>Open developer console to see output - click more than once and note object behaviour.</p>
-
-    <button class="btn" onclick="test2()">Test</button>
-
-    <hr>
-
-    <h4>Performance considerations</h4>
-
-    <p>If you have objects with more than a handful of methods (imagine the Cat with eat, sleep, run, scratch, etc. methods) that are instanced many times (an invasion of cats?), it may be worth considering using prototypal method definitions instead for performance reasons. I've written a quick and dirty performance test of two functionally equivalent classes, one that uses prototype to define its methods and the other using the above method, and there is a significant difference between initialisation times. This only kicks in when you're looking at hundreds of thousands of objects though (tested in Chrome on Win 7).</p>
-
-    <h5><a href="prototype-perf.html">Performance test of prototype vs defining methods inside function</a></h5>
-
-    <hr>
-
-    <h4>References</h4>
-
-    <p><a href="http://addyosmani.com/largescalejavascript/#modpattern">The Module Pattern</a> on Addy Osmani's "Patterns For Large-Scale JavaScript Application Architecture"</p>
-
-    <hr>
-
-    <h4>About</h4>
-
-    <p><a href="http://twitter.com/redskyforge">@redskyforge</a></p>
-
-    </div>
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<script src="http://use.edgefonts.net/neuton.js"></script>
+<script src="http://use.edgefonts.net/istok-web.js"></script>
 </body>
 </html>
