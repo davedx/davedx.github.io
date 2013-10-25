@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+	<title>Web development</title>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>Single Horizontal Slide</section>
+        <section>
+            <section>Vertical Slide 1</section>
+            <section>Vertical Slide 2</section>
+        </section>
+        <section>
+        	<pre><code data-trim>
+(def lazy-fib
+  (concat
+   [0 1]
+   ((fn rfib [a b]
+        (lazy-cons (+ a b) (rfib b (+ a b)))) 0 1)))
+    </code></pre>
+    		</section>
+    </div>
+</div>
+<script type="text/javascript">
+Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    keyboard: true,
+    touch: true,
+    overview: true,
+    center: true,
+    loop: false,
+    rtl: false,
+    autoSlide: 0,
+    mouseWheel: false,
+    transition: 'default', // default/cube/page/concave/zoom/linear/fade/none
+    transitionSpeed: 'default', // default/fast/slow
+    backgroundTransition: 'default', // default/linear/none
+		dependencies: [
+        // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+        { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+
+        // Interpret Markdown in <section> elements
+        { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+
+        // Syntax highlight for <code> elements
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+
+        // Zoom in and out with Alt+click
+        { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+
+        // Speaker notes
+        { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+
+        // Remote control your reveal.js presentation using a touch device
+        { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } },
+
+        // MathJax
+        { src: 'plugin/math/math.js', async: true }
+    ]
+});
+</script>
+</body>
+</html>

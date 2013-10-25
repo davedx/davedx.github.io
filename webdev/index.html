@@ -1,0 +1,266 @@
+<!doctype html>
+<html>
+<head>
+	<title>Web development</title>
+	<link rel="stylesheet" href="css/reveal.min.css">
+	<link rel="stylesheet" href="css/theme/default.css" id="theme">
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+</head>
+<body>
+<div class="reveal">
+	<div class="slides">
+		<section>
+			<h1>Frontend web development</h1>
+			<h2>A crash course presentation</h2>
+		</section>
+		<section>
+			<h2>Technology</h2>
+			<ul>
+				<li>HTML5</li>
+				<li>CSS</li>
+				<li>JavaScript</li>
+			</ul>
+		</section>
+		<section>
+			<h2>HTML: Hypertext Markup Language</h2>
+			<ul>
+				<li>Hypertext: links documents together</li>
+				<li>Markup language: annotate text to describe document hierarchy and semantics</li>
+				<li>HTML5: new functionality like &lt;video&gt; and &lt;canvas&gt;</li>
+			</ul>
+		</section>
+		<section>
+			<h2>CSS: Cascading Style Sheets</h2>
+			<ul>
+				<li>Describe presentation of documents (layout and formatting)</li>
+				<li>Uses <strong>selectors</strong></li>
+				<li>Cascading: more specific selectors override less specific ones</li>
+				<li>Style sheets: a list of selectors</li>
+			</ul>
+		</section>
+		<section>
+			<h2>JavaScript</h2>
+			<ul>
+				<li>Feature sparse</li>
+				<li>Interpreted</li>
+				<li>Prototype-based</li>
+				<li>Dynamic typing</li>
+				<li>First class functions</li>
+				<li>Client and server-side</li>
+				<li>Not without its warts</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Diving in</h2>
+		<pre><code data-trim>
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;h1&gt;Hello world!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+    </code></pre>
+ 		</section>
+		<section>
+			<h2>Diving in</h2>
+		<pre><code data-trim>
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style type="text/css"&gt;
+h1 {
+	color: purple;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Hello world!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+    </code></pre>
+ 		</section>
+		<section>
+			<h2>Diving in</h2>
+		<pre><code data-trim>
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style type="text/css"&gt;
+h1 {
+	color: purple;
+}
+&lt;/style&gt;
+&lt;script type="text/javascript"&gt;
+window.onload = function() {
+	var header = document.getElementById('header');
+	header.innerHTML = 'Hello moon!';
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1 id="header"&gt;Hello world!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+    </code></pre>
+ 		</section>
+ 		<section>
+ 			<h2>More JavaScript</h2>
+ 			<h3>Imperative, structured</h3>
+ 			<p>C style if statements, while loops, switch statements</p>
+ 		</section>
+ 		<section>
+ 			<h2>More JavaScript</h2>
+ 			<h3>Dynamic</h3>
+ 			<ul>
+ 				<li>Typing</li>
+ 				<li>Object based</li>
+ 				<li>Run-time evaluation</li>
+ 			</ul>
+ 		</section>
+ 		<section>
+ 			<h2>More JavaScript</h2>
+ 			<h3>Functional</h3>
+ 			<ul>
+ 				<li>First class functions</li>
+ 				<li>Lexical closures</li>
+ 				<li>Anonymous functions</li>
+ 			</ul>
+ 		</section>
+ 		<section>
+ 			<h2>More JavaScript</h2>
+ 			<h3>Prototype-based</h3>
+ 			<ul>
+ 				<li>Prototypes</li>
+ 				<li>Functions as object constructors</li>
+ 				<li>Functions as methods</li>
+ 			</ul>
+ 		</section>
+ 		<section>
+ 			<h2>More JavaScript</h2>
+ 			<h3>Other features</h3>
+ 			<ul>
+ 				<li>Garbage collected</li>
+ 				<li>Variadic functions</li>
+ 				<li>Array and object literals</li>
+ 				<li>JSON</li>
+ 				<li>Regular expressions</li>
+ 			</ul>
+ 		</section>
+		<section>
+ 			<h1>Intermission</h1>
+ 			<h5>Entertainment kindly provided by XKCD</h5>
+ 		</section>
+ 		<section>
+ 			<img src="regular_expressions.png">
+ 		</section>
+ 		<section>
+ 			<img src="perl_problems.png">
+ 		</section>
+ 		<section>
+ 			<h2>JavaScript as assembly language</h2>
+ 			<h3>Compile to JavaScript</h3>
+ 			<ul>
+ 				<li>CoffeeScript</li>
+ 				<li>ClojureScript</li>
+ 				<li>GWT (Google Web Toolkit)</li>
+ 				<li>asm.js</li>
+ 			</ul>
+ 		</section>
+ 		<section>
+ 			<h2>More JavaScript</h2>
+ 			<h3>The warts</h3>
+ 			<ul>
+ 				<li>Dodgy scoping</li>
+ 				<li>Equality</li>
+ 				<li>Typed wrappers</li>
+ 				<li>this context binding</li>
+ 				<li>No modules/include</li>
+ 			</ul>
+ 		</section>
+ 		<section>
+ 			<h2>Advanced JavaScript</h2>
+ 			<h4>For rockstar ninja cats</h4>
+ 			<ul>
+ 				<li>Immediately Invoked Function Expressions</li>
+ 				<li>Module pattern</li>
+ 				<li>Partial application and currying</li>
+ 				<li>CommonJS (exports and require)</li>
+ 			</ul>
+ 		</section>
+ 		<section>
+ 			<h2>Frontend testing</h2>
+ 			<ul>
+ 				<li>Node.js, npm</li>
+ 				<li>Phantomjs</li>
+ 				<li>Drone</li>
+ 				<li>Grunt</li>
+ 			</ul>
+ 		</section>
+ 		<section>
+ 			<h2>JavaScript libs</h2>
+ 			<ul>
+ 				<li>jQuery</li>
+ 				<li>Underscore.js</li>
+ 				<li>AngularJS</li>
+ 				<li>Backbone.js</li>
+ 				<li>Meteor</li>
+ 				<li>MAF (Metrological Application Framework)</li>
+ 			</ul>
+ 		</section>
+
+ 		<section>
+ 			<h3>Further reading</h3>
+ 			<ul>
+ 				<li><a href="http://shop.oreilly.com/product/9780596517748.do">JavaScript: The Good Parts</a></li>
+ 				<li><a href="http://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented-ebook/dp/B000SEIBB8">Design Patterns (Gang of Four)</a></li>
+ 				<li><a href="http://addyosmani.com/largescalejavascript/">Patterns For Large-Scale JavaScript Application Architecture</a></li>
+ 				<li><a href="http://eloquentjavascript.net/">Eloquent JavaScript</a></li>
+ 				<li><a href="https://developer.mozilla.org/en-US/?redirectlocale=en-US&redirectslug=Main_page">Mozilla Developer Network</a></li>
+ 				<li><a href="http://benalman.com/news/2010/11/immediately-invoked-function-expression/">Immediately Invoked Function Expressions</a></li>
+ 			</ul>
+ 		</section>
+  </div>
+</div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+<script type="text/javascript">
+Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    keyboard: true,
+    touch: true,
+    overview: true,
+    center: true,
+    loop: false,
+    rtl: false,
+    autoSlide: 0,
+    mouseWheel: false,
+    transition: 'none', // default/cube/page/concave/zoom/linear/fade/none
+    transitionSpeed: 'default', // default/fast/slow
+    backgroundTransition: 'default', // default/linear/none
+		dependencies: [
+        // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+        { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+
+        // Interpret Markdown in <section> elements
+        { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+
+        // Syntax highlight for <code> elements
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+
+        // Zoom in and out with Alt+click
+        { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+
+        // Speaker notes
+        { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+
+        // MathJax
+        { src: 'plugin/math/math.js', async: true }
+    ]
+});
+</script>
+</body>
+</html>
